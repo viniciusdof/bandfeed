@@ -1,0 +1,12 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "bandfeed",
+	"main": "src/index.ts",
+	"compatibility_date": "2026-02-28",
+	"routes": [
+		{
+			"pattern": "bandfeed.viniciusdof.com",
+			"custom_domain": true
+		}
+	]
+}
