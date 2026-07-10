@@ -10,15 +10,15 @@
 		"format": "biome format --write ."
 	},
 	"dependencies": {
-		"@hono/swagger-ui": "^0.5.3",
-		"@hono/zod-openapi": "^1.2.2",
-		"@hono/zod-validator": "^0.7.6",
-		"hono": "^4.12.3",
-		"zod": "^4.3.6"
+		"@hono/swagger-ui": "^0.6.1",
+		"@hono/zod-openapi": "^1.4.0",
+		"@hono/zod-validator": "^0.8.0",
+		"hono": "^4.12.29",
+		"zod": "^4.4.3"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "^2.4.4",
-		"@types/node": "^25.3.3",
-		"wrangler": "^4.4.0"
+		"@biomejs/biome": "^2.5.3",
+		"@types/node": "^26.1.1",
+		"wrangler": "^4.110.0"
 	}
 }

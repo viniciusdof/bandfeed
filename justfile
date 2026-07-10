@@ -7,31 +7,31 @@ list:
 
 # Start development server
 dev:
-    bun run dev
+    pnpm dev
 
 # Deploy worker to Cloudflare
 deploy:
-    bun run deploy
+    pnpm deploy
 
 # Run lint checks
 lint:
-    bun run lint
+    pnpm lint
 
 # Format code automatically
 format:
-    bun run format
+    pnpm format
 
 # Run type check
 check:
-    bunx tsc --noEmit
+    pnpm dlx tsc --noEmit
 
 # Generate Cloudflare bindings types
 typegen:
-    bun run cf-typegen
+    pnpm cf-typegen
 
 # Install dependencies
 install:
-    bun install
+    pnpm install
 
 # Clean up build artifacts and cache
 clean:
