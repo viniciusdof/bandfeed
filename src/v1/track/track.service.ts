@@ -1,3 +1,4 @@
+import { BROWSER_HEADERS } from "../../shared/utils/fetch";
 import { decodeHTML } from "../../shared/utils/html";
 import type {
 	RawBandcampAlbum,
@@ -10,7 +11,7 @@ export async function fetchTrackData(
 	slug: string,
 ): Promise<TrackPageData> {
 	const url = `https://${subdomain}.bandcamp.com/track/${slug}`;
-	const res = await fetch(url);
+	const res = await fetch(url, { headers: BROWSER_HEADERS });
 	if (!res.ok) throw new Error(`Bandcamp returned ${res.status}`);
 
 	const state: {

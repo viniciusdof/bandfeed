@@ -1,15 +1,11 @@
+import { BROWSER_HEADERS } from "../../shared/utils/fetch";
 import { decodeHTML } from "../../shared/utils/html";
 import type { BandcampItemRaw, UserBlobRaw } from "./user.models";
-
-const USER_AGENT =
-	"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36";
 
 export async function fetchUserBlob(username: string): Promise<UserBlobRaw> {
 	const url = `https://bandcamp.com/${username}`;
 	const res = await fetch(url, {
-		headers: {
-			"User-Agent": USER_AGENT,
-		},
+		headers: BROWSER_HEADERS,
 	});
 	if (!res.ok) throw new Error(`Bandcamp returned ${res.status}`);
 
@@ -58,8 +54,8 @@ export async function fetchAllItems(
 		const res = await fetch(endpoint, {
 			method: "POST",
 			headers: {
+				...BROWSER_HEADERS,
 				"Content-Type": "application/json",
-				"User-Agent": USER_AGENT,
 			},
 			body: JSON.stringify({
 				fan_id,

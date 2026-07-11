@@ -1,6 +1,7 @@
 import { swaggerUI } from "@hono/swagger-ui";
 import { OpenAPIHono } from "@hono/zod-openapi";
 import { version } from "../package.json";
+import { structuredLogger } from "./shared/middleware/logger";
 import { albumRouter } from "./v1/album/album.routes";
 import { bandRouter } from "./v1/band/band.routes";
 import { trackRouter } from "./v1/track/track.routes";
@@ -8,6 +9,8 @@ import { userRouter } from "./v1/user/user.routes";
 
 const app = new OpenAPIHono();
 const v1 = new OpenAPIHono();
+
+app.use(structuredLogger());
 
 v1.route("/", bandRouter);
 v1.route("/", albumRouter);

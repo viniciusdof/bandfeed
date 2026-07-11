@@ -1,3 +1,4 @@
+import { BROWSER_HEADERS } from "../../shared/utils/fetch";
 import { decodeHTML } from "../../shared/utils/html";
 import type { BandData, RawBandcampBand, ReleaseData } from "./band.models";
 
@@ -6,7 +7,7 @@ export async function fetchBandData(subdomain: string): Promise<{
 	releases: ReleaseData[];
 }> {
 	const url = `https://${subdomain}.bandcamp.com/music`;
-	const res = await fetch(url);
+	const res = await fetch(url, { headers: BROWSER_HEADERS });
 	if (!res.ok) throw new Error(`Bandcamp returned ${res.status}`);
 
 	const state: {
