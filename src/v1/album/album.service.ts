@@ -1,4 +1,4 @@
-import { BROWSER_HEADERS } from "../../shared/utils/fetch";
+import { fetchBandcampPage } from "../../shared/utils/fetch";
 import { decodeHTML } from "../../shared/utils/html";
 import type { AlbumData, RawBandcampAlbum } from "./album.models";
 
@@ -7,8 +7,7 @@ export async function fetchAlbumData(
 	slug: string,
 ): Promise<AlbumData> {
 	const url = `https://${subdomain}.bandcamp.com/album/${slug}`;
-	const res = await fetch(url, { headers: BROWSER_HEADERS });
-	if (!res.ok) throw new Error(`Bandcamp returned ${res.status}`);
+	const res = await fetchBandcampPage(url);
 
 	const state: {
 		rawAlbum: RawBandcampAlbum | null;

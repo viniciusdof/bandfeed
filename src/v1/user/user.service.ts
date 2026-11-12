@@ -1,13 +1,10 @@
-import { BROWSER_HEADERS } from "../../shared/utils/fetch";
+import { BROWSER_HEADERS, fetchBandcampPage } from "../../shared/utils/fetch";
 import { decodeHTML } from "../../shared/utils/html";
 import type { BandcampItemRaw, UserBlobRaw } from "./user.models";
 
 export async function fetchUserBlob(username: string): Promise<UserBlobRaw> {
 	const url = `https://bandcamp.com/${username}`;
-	const res = await fetch(url, {
-		headers: BROWSER_HEADERS,
-	});
-	if (!res.ok) throw new Error(`Bandcamp returned ${res.status}`);
+	const res = await fetchBandcampPage(url);
 
 	const state: { blob: UserBlobRaw | null } = { blob: null };
 
