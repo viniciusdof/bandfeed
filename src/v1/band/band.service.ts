@@ -64,7 +64,8 @@ export async function fetchBandData(subdomain: string): Promise<{
 		.on(".music-grid-item img", {
 			element(el) {
 				if (state.currentRelease) {
-					const src = el.getAttribute("src");
+					const src =
+						el.getAttribute("data-original") ?? el.getAttribute("src");
 					state.currentRelease.img =
 						src?.replace(/_[0-9]+\.jpg$/, "_10.jpg") ?? null;
 				}

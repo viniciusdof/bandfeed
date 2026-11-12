@@ -70,7 +70,7 @@ export async function fetchTrackData(
 
 	await rewriter.transform(res).arrayBuffer();
 
-	if (!state.rawAlbum || !state.rawAlbum.trackinfo[0]) {
+	if (!state.rawAlbum?.trackinfo[0]) {
 		throw new Error("Could not find track data on page");
 	}
 
