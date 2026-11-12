@@ -23,7 +23,7 @@ format:
 
 # Run type check
 check:
-    pnpm dlx tsc --noEmit
+    pnpm exec tsc --noEmit
 
 # Generate Cloudflare bindings types
 typegen:
